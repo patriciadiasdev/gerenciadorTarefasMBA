@@ -16,8 +16,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
     }
 
     const { MY_SECRET_KEY } = process.env;
-    console.log("Ola o log", process.env);
-    
     if(!MY_SECRET_KEY) {
       res.status(500).json({ error: 'ENV MY_SECRET_KEY não encontrada'});
       return;
