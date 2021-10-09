@@ -1,0 +1,20 @@
+# Reference to update
+# https://github.com/Joao-Henrique/Docker_Medium_Tutorial/blob/master/docker-compose.yml
+
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    command: mongod --noauth
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
